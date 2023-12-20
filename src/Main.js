@@ -1,6 +1,9 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import './Main.css'
+import MainPage from "./MainPage";
+
+
 // const h1Style = {
 //      display: "flex"
 //
@@ -26,7 +29,7 @@ import './Main.css'
 const Main = props => {
     return (
         <Fragment>
-
+            <MainPage/>
         </Fragment>
     );
 };
