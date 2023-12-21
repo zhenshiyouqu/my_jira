@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Button from "../../public/Button";
+import {Button, Flex, Space} from 'antd';
 
 export const Filter = styled.div`
   display: flex;
@@ -8,11 +8,9 @@ export const Filter = styled.div`
 `;
 
 
-export const SearchButton = styled.button`
-  margin-right: 18px;
-  width: 160px;
-  background-color: ${props => props.primary? "blue":"white"};
-  
+export const SearchButton = styled(Button)`
+  background-color: ${props => props.isclicked? "blue":"white"};
+  color: #61dafb;
 `;
 
 export const ClearButton = styled.button`

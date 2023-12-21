@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
+import {Button, Flex, Space,Avatar, Divider, Tooltip } from 'antd';
 
 import "./index.css"
 import {ClearButton, Filter, SearchButton, SearchInput} from "./Styled"
+
 
 const Filters = ({projectUsers, defaultFilters, filters, mergeFilters}) => {
     const [clicked, setClicked] = useState(false)
@@ -13,14 +15,15 @@ const Filters = ({projectUsers, defaultFilters, filters, mergeFilters}) => {
         setClicked(false)
     }
     return (
-        <Filter >
+        <Space >
             <input />
-            <div className={"avatars"}>
-                avatars
-            </div>
-            <SearchButton onClick = {handleClick}  primary = {clicked}>
-                Only my issues
-            </SearchButton>
+            <Avatar.Group>
+                <Avatar  />
+                <div onClick={handleClick}>
+                    <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
+                </div>
+            </Avatar.Group>
+            <SearchButton type="dashed" onClick = {handleClick}  isclicked = {clicked} >Only my issues</SearchButton>
             <SearchButton >
                 Recently Updated
             </SearchButton>
@@ -29,7 +32,7 @@ const Filters = ({projectUsers, defaultFilters, filters, mergeFilters}) => {
                 Clear all
                  </ClearButton>
             ):<div/>}
-        </Filter>
+        </Space>
     );
 };
 
