@@ -9,20 +9,28 @@ import {
     MenuFoldOutlined
 } from '@ant-design/icons';
 import {Button, Flex, Menu} from 'antd';
-import {Item, LeftMovNavBarDiv, StyledButton, StyledFlex} from "./Styled";
+import {Item, ItemText, LeftMovNavBarDiv, NavLeft, StyledButton, StyledFlex} from "./Styled";
 
 const LeftMovNavBar = props => {
     const onClick = (e) => {
         console.log('click ', e);
     };
     return (
-        <LeftMovNavBarDiv>
-            <HomeOutlined/>
+        <NavLeft>
+            <HomeOutlined style={{fontSize: '50px',marginLeft:'10px'}}/>
             <Item>
-                <HomeOutlined/>
-
+                <HomeOutlined style={{fontSize: '20px'}} ></HomeOutlined>
+                <ItemText>Search issues</ItemText>
             </Item>
-        </LeftMovNavBarDiv>
+            <Item>
+                <HomeOutlined style={{fontSize: '20px'}} ></HomeOutlined>
+                <ItemText>Search issues</ItemText>
+            </Item>
+            <Item style={{bottom :"0",position:"absolute" }}>
+                <HomeOutlined style={{fontSize: '20px'}} ></HomeOutlined>
+                <ItemText>About</ItemText>
+            </Item>
+        </NavLeft>
     );
 };
 

@@ -2,10 +2,11 @@ import styled from 'styled-components';
 import {Button, Flex, Space} from 'antd';
 
 export const LeftStaticNavBarDiv = styled.div`
-    //position: relative;
+    position: fixed;
     top: 0;
+    bottom: 0;
     z-index: 99; 
-  left: 64px;
+  left: 68px;
   width: 230px;
   padding: 0 16px 24px;
   background: #61dafb;

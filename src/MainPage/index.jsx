@@ -9,11 +9,12 @@ import {Flex} from "antd";
 
 const MainPage = props => {
     return (
-        <Flex vertical={true} gap={"large"}>
-            <Header/>
-            <Filters/>
-            <List/>
-        </Flex>
+        // <Flex vertical={true} gap={"large"}>
+        //     <Header/>
+        //     <Filters/>
+        //     <List/>
+        // </Flex>
+
     );
 };
 
