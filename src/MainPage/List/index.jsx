@@ -1,16 +1,20 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import { Card, Space } from 'antd';
+import {Card, Flex, Space} from 'antd';
+import ListItem from "./ListItem";
 
 const List = props => {
+    const s = [1,2,3,4,5]
+
     return (
-        <Fragment>
-            <Card style={{ width: 300 }}>
-                <p>Card content</p>
-                <p>Card content</p>
-                <p>Card content</p>
-            </Card>
-        </Fragment>
+
+            <Flex gap={"large"} wrap={"wrap"}>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+                <ListItem/>
+            </Flex>
+
     );
 };
 

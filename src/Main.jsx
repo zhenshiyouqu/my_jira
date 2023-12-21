@@ -2,6 +2,9 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import './Main.css'
 import MainPage from "./MainPage";
+import {Flex, Layout} from "antd";
+import LeftMovNavBar from "./LeftMovNavBar";
+import LeftStaticNavBar from "./LeftStaticNavBar";
 
 
 // const h1Style = {
@@ -28,9 +31,11 @@ import MainPage from "./MainPage";
 //正式
 const Main = props => {
     return (
-        <Fragment>
+        <Flex gap={"large"}>
+            <LeftMovNavBar/>
+            <LeftStaticNavBar/>
             <MainPage/>
-        </Fragment>
+        </Flex>
     );
 };
 
