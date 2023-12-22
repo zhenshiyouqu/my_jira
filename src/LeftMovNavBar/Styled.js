@@ -10,12 +10,14 @@ export const StyledButton = styled(Button)`
 `;
 
 export const NavLeft=styled.div`
+  display: flex;
+  flex-direction: column;
   z-index: 100;
   position: fixed;
   top: 0;
   left: 0;
   overflow-x: hidden;
-  height: 100vh;
+  height: 100%;
   width: 68px;
   background: #0747A6;
   transition: all 0.1s;

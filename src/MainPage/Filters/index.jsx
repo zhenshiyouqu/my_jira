@@ -37,10 +37,7 @@ const Filters = ({projectUsers, defaultFilters, filters, mergeFilters}) => {
 };
 
 Filters.propTypes = {
-    projectUsers: PropTypes.array.isRequired,
-    defaultFilters: PropTypes.object.isRequired,
-    filters: PropTypes.object.isRequired,
-    mergeFilters: PropTypes.func.isRequired,
+
 };
 
 export default Filters;

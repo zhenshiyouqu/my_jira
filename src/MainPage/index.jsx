@@ -5,6 +5,7 @@ import Filters from "./Filters";
 import Header from "./Header";
 import List from "./List";
 import {Flex} from "antd";
+import {MainPageDiv} from "./Styled";
 
 
 const MainPage = props => {
@@ -14,7 +15,11 @@ const MainPage = props => {
         //     <Filters/>
         //     <List/>
         // </Flex>
-
+        <MainPageDiv>
+            <Header/>
+            <Filters/>
+            <List/>
+        </MainPageDiv>
     );
 };
 

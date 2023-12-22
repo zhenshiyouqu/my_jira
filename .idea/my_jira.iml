@@ -16,5 +16,6 @@
     <orderEntry type="library" name="@types/typescript-deferred" level="application" />
     <orderEntry type="library" name="@types/reach__router" level="application" />
     <orderEntry type="library" name="@types/prop-types" level="application" />
+    <orderEntry type="library" name="@types/javascript-state-machine" level="application" />
   </component>
 </module>

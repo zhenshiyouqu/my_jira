@@ -5,6 +5,7 @@ import MainPage from "./MainPage";
 import {Flex, Layout} from "antd";
 import LeftMovNavBar from "./LeftMovNavBar";
 import LeftStaticNavBar from "./LeftStaticNavBar";
+import {MainContain, MainContainer} from "./Styled";
 
 
 // const h1Style = {
@@ -31,11 +32,16 @@ import LeftStaticNavBar from "./LeftStaticNavBar";
 //正式
 const Main = props => {
     return (
-        <Flex gap={"large"}>
-            <LeftMovNavBar/>
-            <LeftStaticNavBar/>
+        <MainContainer>
+            <div style={{display:"flex",width:"68px"}}><LeftMovNavBar/></div>
+            <div style={{display:"flex",width:"230px"}}><LeftStaticNavBar/></div>
             <MainPage/>
-        </Flex>
+        </MainContainer>
+        // <div style={{display:"flex"}}>
+        //     <div style={{left:"30px"}}>1</div>
+        //     <div>2</div>
+        //     <div>3</div>
+        // </div>
     );
 };
 

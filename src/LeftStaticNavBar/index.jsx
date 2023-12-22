@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon, {AppleFilled, AppstoreOutlined, MailOutlined, SettingOutlined} from '@ant-design/icons';
+import Icon, {AppleFilled, AppstoreOutlined, HomeOutlined, MailOutlined, SettingOutlined} from '@ant-design/icons';
 import { Menu } from 'antd';
-import {LeftStaticNavBarDiv, ProjectCategory, ProjectInfo, ProjectName, ProjectTexts} from "./Styled";
+import {LeftStaticNavBarDiv, ProjectCategory, ProjectInfo, ProjectName, ProjectTexts, StaticNavBar} from "./Styled";
 function getItem(label, key, icon, children, type) {
     return {
         key,
@@ -38,16 +38,32 @@ const LeftMovNavBar = props => {
         console.log('click ', e);
     };
     return (
-       <LeftStaticNavBarDiv>
-            <ProjectInfo>
-                <AppleFilled />
-                <ProjectTexts>
-                    <ProjectName>JJJdasf</ProjectName>
-                    <ProjectCategory>dsafdsaf</ProjectCategory>
-
-                </ProjectTexts>
-            </ProjectInfo>
-       </LeftStaticNavBarDiv>
+            // <LeftStaticNavBarDiv>
+            //     <ProjectInfo>
+            //         <AppleFilled />
+            //         <ProjectTexts>
+            //             <ProjectName>JJJdasf</ProjectName>
+            //             <ProjectCategory>dsafdsaf</ProjectCategory>
+            //         </ProjectTexts>
+            //     </ProjectInfo>
+            // </LeftStaticNavBarDiv>
+        <StaticNavBar>
+            <div style={{height:"100px",width:'230px',display:'flex'}}>
+                <HomeOutlined style={{fontSize:"25px",fontFamily:"CircularStdBook",color:"rgb(23, 43, 77)",alignSelf:'center',justifySelf:'center'}}/>
+            </div>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"end",padding:"0% 15%",height:"50px"}}>
+                <HomeOutlined style={{fontSize:"25px",fontFamily:"CircularStdBook",color:"rgb(23, 43, 77)"}}></HomeOutlined>
+                <div style={{fontSize:"15px"}}>Kanban Board</div>
+            </div>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"end",padding:"0% 15%",height:"50px"}}>
+                <HomeOutlined style={{fontSize:"25px",fontFamily:"CircularStdBook",color:"rgb(23, 43, 77)"}}></HomeOutlined>
+                <div style={{fontSize:"15px"}}>Kanban Board</div>
+            </div>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"end",padding:"0% 15%",height:"50px"}}>
+                <HomeOutlined style={{fontSize:"25px",fontFamily:"CircularStdBook",color:"rgb(23, 43, 77)"}}></HomeOutlined>
+                <div style={{fontSize:"15px"}}>Kanban Board</div>
+            </div>
+        </StaticNavBar>
     );
 };
 

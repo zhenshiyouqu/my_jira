@@ -16,21 +16,21 @@ const LeftMovNavBar = props => {
         console.log('click ', e);
     };
     return (
-        <NavLeft>
-            <HomeOutlined style={{fontSize: '50px',marginLeft:'10px'}}/>
-            <Item>
-                <HomeOutlined style={{fontSize: '20px'}} ></HomeOutlined>
-                <ItemText>Search issues</ItemText>
-            </Item>
-            <Item>
-                <HomeOutlined style={{fontSize: '20px'}} ></HomeOutlined>
-                <ItemText>Search issues</ItemText>
-            </Item>
-            <Item style={{bottom :"0",position:"absolute" }}>
-                <HomeOutlined style={{fontSize: '20px'}} ></HomeOutlined>
-                <ItemText>About</ItemText>
-            </Item>
-        </NavLeft>
+            <NavLeft>
+                <HomeOutlined style={{fontSize: '50px',marginLeft:'10px'}}/>
+                <Item>
+                    <HomeOutlined style={{fontSize: '20px'}} ></HomeOutlined>
+                    <ItemText>Search issues</ItemText>
+                </Item>
+                <Item>
+                    <HomeOutlined style={{fontSize: '20px'}} ></HomeOutlined>
+                    <ItemText>Search issues</ItemText>
+                </Item>
+                <Item style={{bottom :"0",position:"absolute" }}>
+                    <HomeOutlined style={{fontSize: '20px'}} ></HomeOutlined>
+                    <ItemText>About</ItemText>
+                </Item>
+            </NavLeft>
     );
 };
 
