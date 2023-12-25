@@ -6,6 +6,7 @@ import Header from "./Header";
 import List from "./List";
 import {Flex} from "antd";
 import {MainPageDiv} from "./Styled";
+import List2 from "./List2";
 
 
 const MainPage = props => {
@@ -15,11 +16,11 @@ const MainPage = props => {
         //     <Filters/>
         //     <List/>
         // </Flex>
-        <MainPageDiv>
+        <div style={{display:"flex",flexDirection:"column",marginLeft:"100px",flexGrow:"1"}}>
             <Header/>
             <Filters/>
             <List/>
-        </MainPageDiv>
+        </div>
     );
 };
 

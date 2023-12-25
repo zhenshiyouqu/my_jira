@@ -34,7 +34,7 @@ const Main = props => {
     return (
         <MainContainer>
             <div style={{display:"flex",width:"68px"}}><LeftMovNavBar/></div>
-            <div style={{display:"flex",width:"230px"}}><LeftStaticNavBar/></div>
+            {/*<div style={{display:"flex",width:"230px"}}><LeftStaticNavBar/></div>*/}
             <MainPage/>
         </MainContainer>
         // <div style={{display:"flex"}}>
