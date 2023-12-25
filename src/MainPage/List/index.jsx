@@ -24,7 +24,7 @@ const List = props => {
                                 <div style={{padding:"10px 5px"}}>BackLog 3 of 4</div>
                                 {/*其中一个卡片*/}
                                 <ListItemItemDiv>
-                                    <div style={{overflowWrap:"break-word"}}>
+                                    <div style={{overflow:"hidden"}}>
                                         但凡你的萨芬第三方但凡你的萨芬第三方但凡你的萨芬第三方但凡你的萨芬第三方
                                     </div>
                                     <div style={{marginTop: "auto"}}>

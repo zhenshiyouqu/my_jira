@@ -33,9 +33,13 @@ import {MainContain, MainContainer} from "./Styled";
 const Main = props => {
     return (
         <MainContainer>
-            <div style={{display:"flex",width:"68px"}}><LeftMovNavBar/></div>
-            {/*<div style={{display:"flex",width:"230px"}}><LeftStaticNavBar/></div>*/}
-            <MainPage/>
+
+            <div style={{display:"flex",flexBasis:"68px",flexGrow:0,flexShrink:0}}><LeftMovNavBar/></div>
+            <div style={{display:"flex",flexBasis:"230px",flexGrow:0,flexShrink:0}}><LeftStaticNavBar/></div>
+            <div style={{display:"flex",flexGrow:1 ,flexBasis:"100%"}}>
+                <MainPage/>
+            </div>
+
         </MainContainer>
         // <div style={{display:"flex"}}>
         //     <div style={{left:"30px"}}>1</div>

@@ -4,9 +4,10 @@ export const ListContainerDiv = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 400px;
-    width: 25%;
+    max-width: 25%;
     align-content: center;
     padding: 20px;
+    max-height: 100%;
 `;
 
 export const ListItemDiv = styled.div`
