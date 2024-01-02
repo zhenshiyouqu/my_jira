@@ -10,3 +10,14 @@ export const StaticNavBar=styled.div`
     border-right: 1px solid rgb(223, 225, 230);
     overflow: hidden auto;
 `
+
+export const ItemDiv = styled.div`
+  display:flex;
+  justifyContent:space-between;
+  alignItems:end;
+  padding:0% 15% ;
+  height:50px;
+  &:hover {
+    background: white;
+  }
+`
