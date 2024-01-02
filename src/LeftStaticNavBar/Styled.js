@@ -9,6 +9,7 @@ export const StaticNavBar=styled.div`
     background: rgb(244, 245, 247);
     border-right: 1px solid rgb(223, 225, 230);
     overflow: hidden auto;
+
 `
 
 export const ItemDiv = styled.div`

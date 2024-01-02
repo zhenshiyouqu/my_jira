@@ -8,13 +8,16 @@ import Expenses from "./routes/expenses";
 import Invoices from "./routes/invoices";
 import Invoice from "./routes/invoice";
 import LeftStaticNavBar from "./LeftStaticNavBar";
+import MainPage from "./MainPage";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<App/>} >
-                <Route path="/projects" element={<LeftStaticNavBar />} />
+                <Route path="projects" element={<LeftStaticNavBar />} >
+                    <Route path="board" element={<MainPage />}/>
+                </Route>
             </Route>
 
 

@@ -42,7 +42,6 @@ const LeftMovNavBar = props => {
                                     <ItemText>{d}</ItemText>
                                 </Item>
                             </Link>
-
                         )
                     )
                 }

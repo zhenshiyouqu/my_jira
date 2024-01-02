@@ -11,12 +11,18 @@ import MainPage from "./MainPage";
 function App() {
   return (
       <MainContainer>
-        <div style={{display:"flex",flexBasis:"68px",flexGrow:0,flexShrink:0}}><LeftMovNavBar/></div>
-          <Outlet></Outlet>
-        {/*<div style={{display:"flex",flexBasis:"230px",flexGrow:0,flexShrink:0}}><LeftStaticNavBar/></div>*/}
-        {/*<div style={{display:"flex",flexGrow:1 ,flexBasis:"100%"}}>*/}
-        {/*  <MainPage/>*/}
-        {/*</div>*/}
+          {/*<div style={{display: "flex", flexBasis: "68px", flexGrow: 0, flexShrink: 0}}><LeftMovNavBar/></div>*/}
+          <div>
+              <LeftMovNavBar/>
+          </div>
+          <Outlet style={{marginLeft:"68px"}}/>
+
+          {/*原版*/}
+          {/*<div style={{display: "flex", flexBasis: "68px", flexGrow: 0, flexShrink: 0}}><LeftMovNavBar/></div>*/}
+          {/*<div style={{display:"flex",flexBasis:"230px",flexGrow:0,flexShrink:0}}><LeftStaticNavBar/></div>*/}
+          {/*<div style={{display:"flex",flexGrow:1 ,flexBasis:"100%"}}>*/}
+          {/*  <MainPage/>*/}
+          {/*</div>*/}
       </MainContainer>
 
       //react-route测试

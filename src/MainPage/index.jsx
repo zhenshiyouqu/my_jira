@@ -16,16 +16,17 @@ const MainPage = props => {
         //     <Filters/>
         //     <List/>
         // </Flex>
-        <div style={{display:"flex",flexDirection:"column",marginLeft:"100px",flexGrow:"1"}}>
-            <Header/>
-            <Filters/>
-            <List/>
+        <div style={{marginLeft:"298px"}}>
+            <div style={{display: "flex", flexDirection: "column", flexGrow: "1"}}>
+                <Header/>
+                <Filters/>
+                <List/>
+            </div>
         </div>
+
     );
 };
 
-MainPage.propTypes = {
-
-};
+MainPage.propTypes = {};
 
 export default MainPage;
