@@ -10,7 +10,7 @@ import {
 } from '@ant-design/icons';
 import {Button, Flex, Menu} from 'antd';
 import {Item, ItemText, LeftMovNavBarDiv, NavLeft, StyledButton, StyledFlex} from "./Styled";
-import {Link} from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
 
 const LeftMovNavBar = props => {
     const onClick = (e) => {
@@ -21,6 +21,8 @@ const LeftMovNavBar = props => {
     ]
 
     return (
+        <>
+
             <NavLeft>
                 <div style={{flexBasis:"30px",margin:"0 19px"}}>
                     <svg style={{marginTop:"6px"}} xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" className="bi bi-motherboard-fill" viewBox="0 0 16 16">
@@ -53,6 +55,8 @@ const LeftMovNavBar = props => {
                     </svg>
                 </div>
             </NavLeft>
+        <Outlet/>
+        </>
     );
 };
 

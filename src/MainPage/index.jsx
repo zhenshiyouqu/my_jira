@@ -16,13 +16,12 @@ const MainPage = props => {
         //     <Filters/>
         //     <List/>
         // </Flex>
-        <div style={{marginLeft:"298px"}}>
-            <div style={{display: "flex", flexDirection: "column", flexGrow: "1"}}>
+
+            <div style={{display: "flex", flexDirection: "column"}}>
                 <Header/>
                 <Filters/>
                 <List/>
             </div>
-        </div>
 
     );
 };

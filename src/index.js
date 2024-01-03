@@ -9,6 +9,7 @@ import Invoices from "./routes/invoices";
 import Invoice from "./routes/invoice";
 import LeftStaticNavBar from "./LeftStaticNavBar";
 import MainPage from "./MainPage";
+import Requirements from "./Requirements";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +18,7 @@ root.render(
             <Route path="/" element={<App/>} >
                 <Route path="projects" element={<LeftStaticNavBar />} >
                     <Route path="board" element={<MainPage />}/>
+                    <Route path="requirements" element={<Requirements />}/>
                 </Route>
             </Route>
 
