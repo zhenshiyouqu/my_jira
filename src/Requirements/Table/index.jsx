@@ -6,36 +6,61 @@ const Table = props => {
     const data = [{
         project:"Project",
         owner:"Owner",
-        status:"Status"
+        status:"Status",
+        due_date:"Due date",
+        priority:"Priority",
+        notes:"Notes",
+        budget:"Budget",
+        files:"Files",
+        last:"Last updated"
     },{
-        project:"11",
-        owner:"334",
-        status:"2"
+        project:"342",
+        owner:"34",
+        status:"123",
+        due_date:"Due 4",
+        priority:"34",
+        notes:"34",
+        budget:"12",
+        files:"4325",
+        last:"sadfads"
+    },{
+        project:"342",
+        owner:"34",
+        status:"123",
+        due_date:"Due 4",
+        priority:"34",
+        notes:"34",
+        budget:"12",
+        files:"4325",
+        last:"sadfads"
     }]
 
 
     return (
-        <>
-            <div className="grid" style={{display:"table",borderCollapse:"collapse"}}>
-                <TableRow className="row">
-                    <TableCell className="cell">1,1</TableCell>
-                    <TableCell className="cell">1,2</TableCell>
-                    <TableCell className="cell">1,3</TableCell>
-                </TableRow>
-                <TableRow className="row">
-                    <TableCell className="cell">2,1</TableCell>
-                    <TableCell className="cell">2,2</TableCell>
-                    <TableCell className="cell">2,3</TableCell>
-                </TableRow>
-                <TableRow class="row">
-                    <TableCell class="cell">3,1</TableCell>
-                    <TableCell class="cell">3,2</TableCell>
-                    <TableCell class="cell">3,3</TableCell>
-                </TableRow>
+        <div style={{marginTop:"50px"}}>
+            <div className="grid" style={{display:"table",borderCollapse:"collapse",margin:"50px"}}>
+                {
+                    data.map(
+                        (d)=>(
+                            <TableRow className="row">
+                                <TableCell className="cell">{d.project}</TableCell>
+                                <TableCell className="cell">{d.owner}</TableCell>
+                                <TableCell className="cell">{d.status}</TableCell>
+                                <TableCell className="cell">{d.due_date}</TableCell>
+                                <TableCell className="cell">{d.priority}</TableCell>
+                                <TableCell className="cell">{d.notes}</TableCell>
+                                <TableCell className="cell">{d.budget}</TableCell>
+                                <TableCell className="cell">{d.files}</TableCell>
+                                <TableCell className="cell">{d.last}</TableCell>
+
+                            </TableRow>
+                        )
+                    )
+                }
             </div>
 
 
-        </>
+        </div>
     );
 };
 
