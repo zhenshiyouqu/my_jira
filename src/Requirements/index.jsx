@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import {RequirementsDiv} from "./Styled";
 import Table from "./Table";
 
+// 该页面展示所有的需求，包括不属于自己的需求，若需求属于自己，则可以编辑，否则只能查看
+// 可通过过滤器查看自己的需求等等
 const Requirements = props => {
     return (
             <div style={{width:"100%"}}>
@@ -29,10 +31,6 @@ const Requirements = props => {
                                 </div>
                             </button>
                         </div>
-
-
-
-
                     </div>
                 </div>
                 <div style={{display:"flex",alignItems:"center"}}>

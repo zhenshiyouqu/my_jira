@@ -5,7 +5,7 @@ import {Link, Outlet} from "react-router-dom";
 import {MainContainer} from "./Styled";
 import LeftMovNavBar from "./LeftMovNavBar";
 import LeftStaticNavBar from "./LeftStaticNavBar";
-import MainPage from "./MainPage";
+import Board from "./Board";
 
 
 function App() {

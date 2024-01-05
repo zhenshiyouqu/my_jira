@@ -8,7 +8,7 @@ import Expenses from "./routes/expenses";
 import Invoices from "./routes/invoices";
 import Invoice from "./routes/invoice";
 import LeftStaticNavBar from "./LeftStaticNavBar";
-import MainPage from "./MainPage";
+import MainPage from "./Board";
 import Requirements from "./Requirements";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
