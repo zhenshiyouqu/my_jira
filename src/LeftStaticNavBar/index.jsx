@@ -2,6 +2,9 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import Icon, {AppleFilled, AppstoreOutlined, HomeOutlined, MailOutlined, SettingOutlined} from '@ant-design/icons';
 import { Menu } from 'antd';
+import styled from 'styled-components';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 import {
     ItemDiv,
     LeftStaticNavBarDiv,
@@ -12,6 +15,7 @@ import {
     StaticNavBar
 } from "./Styled";
 import {Link, Outlet} from "react-router-dom";
+import {MyLink} from "../general/Styled";
 function getItem(label, key, icon, children, type) {
     return {
         key,
@@ -60,7 +64,7 @@ const LeftMovNavBar = props => {
                     {
                         data.map(
                             (d) => (
-                                <Link to={d.path}>
+                                <MyLink to={d.path}>
                                     <ItemDiv style={{
                                         display: "flex",
                                         justifyContent: "space-between",
@@ -79,13 +83,13 @@ const LeftMovNavBar = props => {
                                         </div>
                                         <div style={{fontSize: "15px"}}>{d.name}</div>
                                     </ItemDiv>
-                                </Link>
+                                </MyLink>
                             )
                         )
                     }
                 </StaticNavBar>
             </div>
-            <div style={{marginLeft:"298px"}}>
+            <div style={{marginLeft:"298px",padding:"0 30px"}}>
                 <Outlet/>
             </div>
         </>
@@ -93,6 +97,8 @@ const LeftMovNavBar = props => {
 
     );
 };
+
+
 
 LeftMovNavBar.propTypes = {};
 

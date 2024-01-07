@@ -1,49 +1,68 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
-import {TableCell, TableRow} from "../Styled";
 import axios from "axios";
 import Result from "../../class/Result";
 import Requirement from "../../class/Requirement";
+import styled from "styled-components";
 
 const Table = props => {
-    const [datas,setDatas] = useState(
-        new Result(200,null,[new Requirement()])
+    const [datas, setDatas] = useState(
+        new Result(200, null, [new Requirement()])
     )
 
     useEffect(() => {
         //
         axios.get("http://localhost:8080/requirement/get/requirements?ownerId=1").then((res) => {
-            if (res.data.code === 200){
+            if (res.data.code === 200) {
                 setDatas(res.data)
                 console.log(res.data);
             }
-        } ).catch((err) => {console.log(err)})
+        }).catch((err) => {
+            console.log(err)
+        })
     }, []);
 
     return (
-        <>
-            <div className="grid" style={{display:"table",borderCollapse:"collapse"}}>
+        <div style={{}}>
+            <div className="grid" style={{display: "table", borderCollapse: "collapse"}}>
+                <TableRow className="row">
+                    {
+                        Object.keys(datas.data[0]).map(key => (
+                            <TableCell className="cell">{key}</TableCell>
+                        ))
+                    }
+                </TableRow>
                 {datas.data.map((item) => (
                     <TableRow className="row">
-                        <TableCell className="cell">{item.id}</TableCell>
-                        <TableCell className="cell">{item.requirement_name}</TableCell>
-                        <TableCell className="cell">{item.detailId}</TableCell>
-                        <TableCell className="cell">{item.ownerId}</TableCell>
-                        <TableCell className="cell">{item.status}</TableCell>
-                        <TableCell className="cell">{item.dueDate}</TableCell>
-                        <TableCell className="cell">{item.priority}</TableCell>
-                        <TableCell className="cell">{item.createTime}</TableCell>
-                        <TableCell className="cell">{item.last_updated_time}</TableCell>
-                        <TableCell className="cell">{item.last_update}</TableCell>
+                        {
+                            Object.keys(item).map(key => (
+                                <TableCell contenteditable="true">{item[key]}</TableCell>
+                            ))
+                        }
                     </TableRow>
                 ))}
             </div>
-        </>
+        </div>
     );
 };
 
-Table.propTypes = {
+const TableRow = styled.div`
+    display: table-row;
+`;
+const TableCell = styled.div`
+    display: table-cell;
+    border: 2px solid gray;
+    padding: 10px 50px;
+    text-align: center;
+    font-size: 15px;
+    font-family: "Microsoft YaHei UI", serif;
     
-};
+    &:hover {
+        background-color: rgba(253, 255, 212, 0.59);
+        border: 2px solid greenyellow;
+        cursor: text;
+    }
+`;
+Table.propTypes = {};
 
 export default Table;

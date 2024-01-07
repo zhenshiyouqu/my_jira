@@ -11,6 +11,7 @@ import {
 import {Button, Flex, Menu} from 'antd';
 import {Item, ItemText, LeftMovNavBarDiv, NavLeft, StyledButton, StyledFlex} from "./Styled";
 import {Link, Outlet} from "react-router-dom";
+import {MyLink} from "../general/Styled";
 
 const LeftMovNavBar = props => {
     const onClick = (e) => {
@@ -33,7 +34,7 @@ const LeftMovNavBar = props => {
                 {
                     data.map(
                         (d)=>(
-                            <Link to="/projects">
+                            <MyLink to="/projects">
                                 <Item>
                                     <div style={{flexBasis:"30px",margin:"0 19px"}}>
                                         <svg style={{marginTop:"6px"}} xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" className="bi bi-motherboard-fill" viewBox="0 0 16 16">
@@ -43,7 +44,7 @@ const LeftMovNavBar = props => {
                                     </div>
                                     <ItemText>{d}</ItemText>
                                 </Item>
-                            </Link>
+                            </MyLink>
                         )
                     )
                 }
@@ -55,7 +56,9 @@ const LeftMovNavBar = props => {
                     </svg>
                 </div>
             </NavLeft>
-        <Outlet/>
+            <div>
+                <Outlet/>
+            </div>
         </>
     );
 };
