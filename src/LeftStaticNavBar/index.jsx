@@ -39,8 +39,8 @@ const data = [
         path:"bugs"
     },
     {
-        name:"任务",
-        path:"1"
+        name:"计划",
+        path:"plans"
     }
     ]
 const LeftMovNavBar = props => {

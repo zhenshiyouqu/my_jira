@@ -9,25 +9,14 @@ import styled from "styled-components";
 
 const Table = ({edited, changeEdit}) => {
     const [datas, setDatas] = useState([new Requirement()])
-
+    //数据缓存，每次重新渲染会清空
+    const cache = null;
+    //组件的引用，用来判断是否在外部点击
     const TableRef = useRef(null);
-    //获取所有需求的数据
-    useEffect(() => {
-        axios.get("http://localhost:8080/requirement/get/requirements?ownerId=1").then((res) => {
-            if (res.data.code === 200) {
-                setDatas(res.data.data)
-                console.log(res.data);
-            }
-        }).catch((err) => {
-            console.log(err)
-        })
-    }, []);
-
-
+    //获取所有需求的数据,渲染后调用
     function click() {
 
     }
-
     const inputChange = (item, key) => (e) => {
         console.log(item)
         console.log(key)
@@ -38,25 +27,32 @@ const Table = ({edited, changeEdit}) => {
         }
     }
 
-
-    //点击TableRef以外的地方，调用某个函数
-    useEffect(() => {
-        function handleClickOutside(event) {
-            if (TableRef.current && !TableRef.current.contains(event.target)) {
-                if (!edited) {
-                    console.log("没有更新")
-                    return;
-                }
-                console.log("更新")
-                changeEdit()
+    const handleClickOutside = (event) => {
+        if (TableRef.current && !TableRef.current.contains(event.target)) {
+            if (edited) {
+                console.log("点击了外部")
             }
         }
+    }
+    useEffect(() => {
+        axios.get("http://localhost:8080/requirement/get/requirements?ownerId=1").then((res) => {
+            if (res.data.code === 200) {
+                setDatas(res.data.data)
+                console.log(res.data);
+            }
+        }).catch((err) => {
+            console.log(err)
+        })
+    }, []);
+    //点击TableRef以外的地方，调用某个函数
+    useEffect(() => {
 
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [TableRef, changeEdit, edited]);
+    }, [TableRef, changeEdit, edited, handleClickOutside]);
+
 
 
     return (
