@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 import PropTypes from 'prop-types';
 import Table from "./Table";
 import IconButton from "../general/IconButton";
@@ -8,8 +8,21 @@ import {mixin} from "../general/Styled";
 // 该页面展示所有的需求，包括不属于自己的需求，若需求属于自己，则可以编辑，否则只能查看
 // 可通过过滤器查看自己的需求等等
 const Requirements = props => {
+    const [edited, setEdited] = useState(false)
+
+    const changeEdit = () => {
+        console.log(edited)
+        setEdited(!edited)
+    }
+
     function handleClick() {
-        console.log("click")
+
+
+
+        if (edited) {
+            //保存编辑
+            changeEdit()
+        }
     }
     return (
             <div style={{width:"100%"}}>
@@ -46,22 +59,22 @@ const Requirements = props => {
                         <span>See More</span>
                     </a>
                 </div>
-                <div style={{display:"flex"}}>
+                <div style={{display:"flex",margin:"20px 0"}} >
                     <IconButton gap={6} size={20} className="bi bi-projector" text="New" />
                     <IconButton gap={6} size={20} className="bi bi-search" text="Search" />
                     <IconButton gap={6} size={20} className="bi bi-sort-down-alt" text="Sort" />
                     <IconButton gap={6} size={20} className="bi bi-person-add" text="Person" />
-                    <IconButton gap={6} size={20} className="bi bi-save" text="Save Edit" onClick={handleClick} color="rgba(93,92,89,0.59)"/>
+                    <IconButton gap={6} size={edited ? 25 : 20}
+                                className="bi bi-save" text="Save Edit" onClick={handleClick}
+                                color = {
+                                    edited ? "green" : "rgba(93,92,89,0.59)"
+                                }/>
                 </div>
-                <Table/>
+                <Table edited={edited} changeEdit = {changeEdit}/>
             </div>
 
     );
 };
-
-
-
-
 
 Requirements.propTypes = {};
 
