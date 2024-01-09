@@ -31,24 +31,7 @@ export const Bottom = styled.div`
   width: 100%;
 `;
 
-export const Item = styled.div`
-  display: flex;
-  
-  width: 100%;
-  height: 42px;
-  line-height: 42px;
-  color: #deebff;
-  transition: color 0.1s;
-  cursor: pointer;
-  user-select: none;
-  &:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-  i {
-    position: absolute;
-    left: 18px;
-  }
-`;
+
 
 export const ItemText = styled.div`
   position: relative;

@@ -22,6 +22,10 @@ const router = createBrowserRouter(
             element: <App/>,
             children: [
                 {
+                    index: true,
+                    element: <Navigate to={"/projects/requirements"}/>
+                },
+                {
                     path:"projects",
                     element:<LeftStaticNavBar/>,
                     children:[
