@@ -2,20 +2,20 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import ButtonIconIcon from "../general/ButtonIconIcon";
 import IconButton from "../general/ButtonIcon";
-import BugPage from "./BugPage";
 
-const BugBoard = props => {
+const MainBoard = props => {
     return (
         <>
             <BoardHeader/>
-            <BugPage/>
+
         </>
     );
 };
 
-BugBoard.propTypes = {
+MainBoard.propTypes = {
 
 };
+
 const BoardHeader = props => {
     const [edited, setEdited] = useState(false)
 
@@ -37,7 +37,7 @@ const BoardHeader = props => {
         <div style={{width:"100%"}}>
             <div style={{display:"flex",alignItems:"center",flexGrow: "1"}}>
                 <div style={{display:"flex",alignItems:"center"}}>
-                    <ButtonIconIcon size={40} text={"Bug"} iconSize={1} className1={"bi bi-info-circle"} className2={"bi bi-star"} />
+                    <ButtonIconIcon size={40} text={"Board"} iconSize={1} className1={"bi bi-info-circle"} className2={"bi bi-star"} />
                 </div>
                 <div style={{marginLeft:"auto"}}>
                     <ButtonIconIcon size={12} text={"CurrentUser"} fontWeight={700} className1={"bi bi-person-circle"} className2={"bi bi-three-dots-vertical"} />
@@ -66,4 +66,5 @@ const BoardHeader = props => {
 
     );
 };
-export default BugBoard;
+
+export default MainBoard;

@@ -12,6 +12,7 @@ import MainPage from "./Board";
 import Requirements from "./Requirements";
 import BugBoard from "./BugBoard";
 import PlanBoard from "./PlanBoard";
+import MainBoard from "./MainBoard";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -31,7 +32,7 @@ const router = createBrowserRouter(
                     children:[
                         {
                             path:"board",
-                            element:<MainPage/>
+                            element:<MainBoard/>
                         },
                         {
                             path:"requirements",
