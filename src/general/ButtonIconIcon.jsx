@@ -15,7 +15,7 @@ const ThisDiv=styled.div`
         background-color: rgba(253,255,212,0.59);
     }
 `;
-export const IconButton = ({ gap=6,size = 20,iconSize = 1.5, className1 = "bi-alarm",fontWeight = 700 ,className2="bi bi-three-dots-vertical", text ="Hello" ,onClick,color="black"}) => {
+export const ButtonIconIcon = ({ gap=6,size = 20,iconSize = 1.5, className1 = "bi-alarm",fontWeight = 700 ,className2="bi bi-three-dots-vertical", text ="Hello" ,onClick,color="black"}) => {
     return (
         <ThisDiv gap={gap} onClick={onClick}>
             <span style={{fontSize: `${size}px`, color: `${color}`,fontWeight: "700" }}>{text}</span>
@@ -24,6 +24,6 @@ export const IconButton = ({ gap=6,size = 20,iconSize = 1.5, className1 = "bi-al
         </ThisDiv>
     );
 };
-IconButton.propTypes = {};
+ButtonIconIcon.propTypes = {};
 
-export default IconButton;
+export default ButtonIconIcon;
