@@ -17,3 +17,11 @@ export const MyLink = styled(Link)`
     text-decoration: none;
     color: inherit;
 `
+
+export const BoarderHeaderFixed = styled.div`
+//    width: "82%", position: "fixed"
+    width: 82%;
+    position: fixed;
+
+`
+

@@ -1,8 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from "../../general/IconButton";
+import {calc} from "antd/es/theme/internal";
+import styled from 'styled-components';
+import { css } from 'styled-components';
+import Bug from "../../class/Bug";
+const BugPage = ({bugs}) =>{
+    return (
+        <BugItemContainer>
+            {
+                bugs.map((bug,index)=>{
+                    return <BugItem bug={bug}/>
+                })
+            }
+        </BugItemContainer>
+    )
+}
 
-const BugPage = props => {
+const BugItemContainer = styled.div`
+    overflow: auto;
+    height: calc(100vh - 250px);
+`
+
+
+
+const BugItem = ({bug}) => {
+    console.log(bug)
     return (
         <div style={{display: "flex",marginBottom:"20px",height:"200px"}}>
             {/*图片*/}
@@ -19,14 +42,16 @@ const BugPage = props => {
                     {/*描述这个人*/}
                     <div style={{marginLeft:"20px",width:"200px"}}>
                         {/*人名 岗位*/}
-                        <div style={{fontSize:"20px"}} >Bob Lee</div>
+                        <div style={{fontSize:"20px"}} >Bob Lee{bug.creator_id}</div>
                         {/*当前阶段*/}
-                        <div style={{color:"gray",fontSize:"15px"}}>当前阶段：开发中</div>
+                        <div style={{color:"gray",fontSize:"15px"}}>
+                            当前阶段：{bug.status}
+                        </div>
                     </div>
                 </div>
                 {/*缺陷的描述*/}
-                <div style={{height:"50%",fontSize:"15px",color:"gray",overflow:"hidden"}}>
-                        为开发人员分享快速参考备忘清单【速查表】。这是英文版 Reference 的中文版本，目的是为了方便自己的技术栈查阅，如果您提供一个清单，我将抽空搬运，立即撸起来 :)。如果您发现此处的备忘单不合适，您可以通过提交 PR 来修复它或提供更好的备忘清单，只针对【中文】用户。以下是开源天使提供的一些备忘清单和快速参考 :)。
+                <div style={{height:"50%",fontSize:"15px",color:"gray",overflow:"hidden",textOverflow:"ellipsis"}}>
+                    {bug.description}
                 </div>
                 {/*点赞 收藏 评论 编辑 详情*/}
                 <div style={{position:"absolute", height:"20%",bottom:"0",display:"flex"}}>
@@ -37,7 +62,6 @@ const BugPage = props => {
                     <IconButton size={15} className={"bi bi-three-dots-vertical"} text={"Detail"} />
                 </div>
             </div>
-
         </div>
     );
 };
