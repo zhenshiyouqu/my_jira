@@ -6,9 +6,18 @@ import BugPage from "./BugPage";
 import {BoarderHeaderFixed} from "../general/Styled";
 import axios from "axios";
 import Bug from "../class/Bug";
+import {Button, Modal} from "antd";
+import BugCreatePage from "./BugCreatePage";
 
 const BugBoard = props => {
     const [bugs, setBugs] = useState([new Bug()])
+    const [open, setOpen] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const showModal = () => {
+        setOpen(true)
+    }
+
+
     useEffect(() => {
         //     请求：/get/bugs
         axios.get("http://localhost:8080/bug/get/bugs?creatorId=1").then((res) => {
@@ -24,10 +33,15 @@ const BugBoard = props => {
     ]);
 
     return (
-
         <>
-            <BoardHeader/>
+            <BoardHeader showModal={showModal} />
             <BugPage bugs = {bugs}/>
+            <Modal open={open} title="Title"
+                   footer={null} onCancel={()=>{setOpen(false)}}
+                   onOk={()=>{setOpen(false)}}
+            >
+                <BugCreatePage/>
+            </Modal>
         </>
     );
 };
@@ -35,7 +49,7 @@ const BugBoard = props => {
 BugBoard.propTypes = {
 
 };
-const BoardHeader = props => {
+const BoardHeader = ({showModal}) => {
     const [edited, setEdited] = useState(false)
 
     const changeEdit = () => {
@@ -72,7 +86,7 @@ const BoardHeader = props => {
                     </a>
                 </div>
                 <div style={{display: "flex", margin: "20px 0"}}>
-                    <IconButton gap={6} size={20} className="bi bi-projector" text="New"/>
+                    <IconButton gap={6} size={20} className="bi bi-projector" onClick={showModal} text="New"/>
                     <IconButton gap={6} size={20} className="bi bi-search" text="Search"/>
                     <IconButton gap={6} size={20} className="bi bi-sort-down-alt" text="Sort"/>
                     <IconButton gap={6} size={20} className="bi bi-person-add" text="Person"/>
