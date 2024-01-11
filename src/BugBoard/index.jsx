@@ -36,7 +36,7 @@ const BugBoard = props => {
         <>
             <BoardHeader showModal={showModal} />
             <BugPage bugs = {bugs}/>
-            <Modal open={open} title="Title"
+            <Modal open={open} title="Title" width={1000}
                    footer={null} onCancel={()=>{setOpen(false)}}
                    onOk={()=>{setOpen(false)}}
             >
