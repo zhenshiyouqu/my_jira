@@ -2,38 +2,27 @@ import React from 'react';
 import {Button, Form, Input, Radio, Upload} from "antd";
 import TextArea from "antd/es/input/TextArea";
 import {PlusOutlined} from "@ant-design/icons";
-import axios from "axios";
+
+const onSubmit = (values) => {
+    console.log("submit")
+    console.log(values)
+}
 
 
-
-const BugCreatePage = props => {
+const ReqCreatePage = props => {
     const [createForm] = Form.useForm();
-    const onSubmit = (values) => {
-        console.log("submit")
-        console.log(values)
-        //调用接口后端接口add/bug
-        axios.post("http://localhost:8080/bug/add/bug",values).then((res)=>{
-            console.log(res.data)
-            if(res.data.code===200){
-                console.log("添加成功")
-            }
-        }).catch((err)=>{
-            console.log(err)
-        }
-        )
-    }
 
     const fillAll = () => {
         createForm.setFieldsValue({
             title: "第一个bug",
             description: "description",
             path: "path",
-            requirementId: "1",
-            processorId: "1",
-            identifierId: "1",
+            requirement_id: "1",
+            processor_id: "1",
+            identifier_id: "1",
             env: 3,
             priority: 4,
-            damage: 4
+            damage: 4,
         });
     }
 
@@ -49,34 +38,32 @@ const BugCreatePage = props => {
                 {/*<input style={{width:"200px",height:"30px"}} type="text" />*/}
                 <TextArea rows={4}/>
                 <div>
-                    <span style={{fontSize: "10", fontWeight: "200"}}>填写说明：有重现步骤、预期结果</span>
+                    <span style={{fontSize: "10", fontWeight: "200"}}>填写说明：背景、价值、需求内容</span>
                 </div>
             </Form.Item>
-            <Form.Item name="path" label="Bug Screenshot/Vedio" required={false}>
-                {/*<input style={{width:"200px",height:"30px"}} type="text" />*/}
-                <Upload action="/upload.do" listType="picture-card">
-                    <button style={{border: 0, background: 'none'}} type="button">
-                        <PlusOutlined/>
-                        <div style={{marginTop: 8}}>Upload</div>
-                    </button>
-                </Upload>
-            </Form.Item>
-            <Form.Item name="requirementId" label="Connect Requirement" required={false}>
+            {/*需求文档，一个链接url*/}
+            <Form.Item name="path" label="Requirement Document" required={false}>
                 <input style={{width: "200px", height: "30px"}} type="text"/>
             </Form.Item>
-            <Form.Item name="processorId" label="Processor" required={false}>
+
+
+            {/*<Form.Item name="path" label="Bug Screenshot/Vedio" required={false}>*/}
+            {/*    /!*<input style={{width:"200px",height:"30px"}} type="text" />*!/*/}
+            {/*    <Upload action="/upload.do" listType="picture-card">*/}
+            {/*        <button style={{border: 0, background: 'none'}} type="button">*/}
+            {/*            <PlusOutlined/>*/}
+            {/*            <div style={{marginTop: 8}}>Upload</div>*/}
+            {/*        </button>*/}
+            {/*    </Upload>*/}
+            {/*</Form.Item>*/}
+            <Form.Item name="requirement_id" label="Connect Requirement" required={false}>
                 <input style={{width: "200px", height: "30px"}} type="text"/>
             </Form.Item>
-            <Form.Item name="identifierId" label="Identifier" required={false}>
+            <Form.Item name="processor_id" label="Processor" required={false}>
                 <input style={{width: "200px", height: "30px"}} type="text"/>
             </Form.Item>
-            <Form.Item name="env" label="Env" required={false}>
-                <Radio.Group defaultValue={3}>
-                    <Radio value={1}>Pro</Radio>
-                    <Radio value={2}>Uat</Radio>
-                    <Radio value={3}>Sit</Radio>
-                    <Radio value={4}>Dev</Radio>
-                </Radio.Group>
+            <Form.Item name="identifier_id" label="Identifier" required={false}>
+                <input style={{width: "200px", height: "30px"}} type="text"/>
             </Form.Item>
             <Form.Item name="priority" label="Priority" required={false}>
                 <Radio.Group defaultValue={4}>
@@ -109,6 +96,6 @@ const BugCreatePage = props => {
     );
 };
 
-BugCreatePage.propTypes = {};
+ReqCreatePage.propTypes = {};
 
-export default BugCreatePage;
+export default ReqCreatePage;

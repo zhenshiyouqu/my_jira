@@ -25,9 +25,6 @@ const BoardHeader = props => {
     }
 
     function handleClick() {
-
-
-
         if (edited) {
             //保存编辑
             changeEdit()

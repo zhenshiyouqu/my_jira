@@ -90,6 +90,7 @@ const BoardHeader = ({showModal}) => {
                     <IconButton gap={6} size={20} className="bi bi-search" text="Search"/>
                     <IconButton gap={6} size={20} className="bi bi-sort-down-alt" text="Sort"/>
                     <IconButton gap={6} size={20} className="bi bi-person-add" text="Person"/>
+                    <IconButton gap={6} size={20} className="bi bi-person" text="Mine"/>
                     <IconButton gap={6} size={edited ? 25 : 20}
                                 className="bi bi-save" text="Save Edit" onClick={handleClick}
                                 color={
