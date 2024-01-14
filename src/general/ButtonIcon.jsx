@@ -15,7 +15,10 @@ const ThisDiv=styled.div`
         background-color: rgba(253,255,212,0.59);
     }
 `;
-export const ButtonIcon = ({ gap=6,size = 20, className = "bi-alarm", text ="Hello" ,onClick,color="black"}) => {
+export const ButtonIcon = (
+    { gap=6,size = 20, className = "bi-alarm", text ="Hello" ,onClick,color="black"}
+
+) => {
     return (
         <ThisDiv gap={gap} onClick={onClick}>
             <span style={{fontSize: `${size}px`, color: `${color}`}}>{text}</span>

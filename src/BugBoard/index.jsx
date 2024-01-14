@@ -99,7 +99,6 @@ const BoardHeader = ({showModal}) => {
                 </div>
             </BoarderHeaderFixed>
         </div>
-
     );
 };
 export default BugBoard;

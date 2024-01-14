@@ -3,16 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter, createBrowserRouter, Navigate, Route, RouterProvider, Routes} from "react-router-dom";
-import Expenses from "./routes/expenses";
-import Invoices from "./routes/invoices";
-import Invoice from "./routes/invoice";
+import { createBrowserRouter, Navigate, Route, RouterProvider} from "react-router-dom";
 import LeftStaticNavBar from "./LeftStaticNavBar";
-import MainPage from "./Board";
 import Requirements from "./Requirements";
 import BugBoard from "./BugBoard";
-import PlanBoard from "./PlanBoard";
 import MainBoard from "./MainBoard";
+import PlanBoard from "./PlanBoard";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -44,7 +40,7 @@ const router = createBrowserRouter(
                         },
                         {
                             path:"plans",
-                            element:<PlanBoard/>
+                            element:<PlanBoard />
                         }
                     ]
                 }
