@@ -2,12 +2,15 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import ButtonIconIcon from "../general/ButtonIconIcon";
 import IconButton from "../general/ButtonIcon";
+import CardList from "./CardList";
+import DragTest from "./DragTest";
 
 const MainBoard = props => {
     return (
         <>
             <BoardHeader/>
-
+            <DragTest/>
+            {/*<CardList/>*/}
         </>
     );
 };

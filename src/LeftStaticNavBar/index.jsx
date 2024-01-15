@@ -57,7 +57,7 @@ const LeftMovNavBar = props => {
         <>
             <div style={{width:"298px"}}>
                 <StaticNavBar>
-                    <i className="bi bi-three-dots-vertical" style={{fontSize: `1.5rem`, color: `black`}}/>
+                    <i className="bi bi-windows" style={{marginLeft: "35px",fontSize: `5rem`, color: `black`}}/>
                     {
                         data.map(
                             (d) => (
@@ -69,7 +69,7 @@ const LeftMovNavBar = props => {
                     }
                 </StaticNavBar>
             </div>
-            <div style={{marginLeft:"298px",padding:"0 30px"}}>
+            <div style={{marginLeft:"218px",padding:"0 30px"}}>
                 <Outlet/>
             </div>
         </>
