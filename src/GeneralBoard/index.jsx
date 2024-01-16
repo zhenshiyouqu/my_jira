@@ -5,17 +5,17 @@ import IconButton from "../general/ButtonIcon";
 import CardList from "./CardList";
 import DragTest from "./DragTest";
 
-const MainBoard = props => {
+const GeneralBoard = props => {
     return (
         <>
             <BoardHeader/>
-            <DragTest/>
-            {/*<CardList/>*/}
+            {/*<DragTest/>*/}
+            <CardList/>
         </>
     );
 };
 
-MainBoard.propTypes = {
+GeneralBoard.propTypes = {
 
 };
 
@@ -67,4 +67,4 @@ const BoardHeader = props => {
     );
 };
 
-export default MainBoard;
+export default GeneralBoard;

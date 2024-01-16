@@ -7,7 +7,7 @@ import { createBrowserRouter, Navigate, Route, RouterProvider} from "react-route
 import LeftStaticNavBar from "./LeftStaticNavBar";
 import Requirements from "./Requirements";
 import BugBoard from "./BugBoard";
-import MainBoard from "./MainBoard";
+import GeneralBoard from "./GeneralBoard";
 import PlanBoard from "./PlanBoard";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -28,7 +28,7 @@ const router = createBrowserRouter(
                     children:[
                         {
                             path:"board",
-                            element:<MainBoard/>
+                            element:<GeneralBoard/>
                         },
                         {
                             path:"requirements",

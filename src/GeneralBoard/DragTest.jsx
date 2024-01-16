@@ -44,63 +44,30 @@ const DragTest = props => {
         <DragDropContext
             onDragEnd={result => console.log(result)}
         >
-
-            {/*<Droppable draggableId="draggable-1">*/}
-            {/*    {*/}
-            {/*        (provided) => (*/}
-            {/*            <div*/}
-            {/*                ref={provided.innerRef}*/}
-            {/*                {...provided.draggableProps}*/}
-            {/*            >*/}
-            {/*                <Draggable draggableId="asdfsa" index={1}>*/}
-            {/*                    {*/}
-            {/*                        (provided) => (*/}
-            {/*                            <div*/}
-            {/*                                ref={provided.innerRef}*/}
-            {/*                                {...provided.draggableProps}*/}
-            {/*                                {...provided.dragHandleProps}*/}
-            {/*                            >*/}
-            {/*                                <h4>Draggable-1</h4>*/}
-            {/*                            </div>*/}
-            {/*                        )*/}
-            {/*                    }*/}
-            {/*                </Draggable>*/}
-            {/*            </div>*/}
-            {/*        )*/}
-            {/*    }*/}
-            {/*</Droppable>*/}
-
-
-
-            {/*<Draggable draggableId="dsafdsf" >*/}
-            {/*    {*/}
-            {/*        (provided) => (*/}
-            {/*            <div*/}
-            {/*                ref={provided.innerRef}*/}
-            {/*                {...provided.draggableProps}*/}
-            {/*                {...provided.dragHandleProps}*/}
-            {/*            >*/}
-            {/*                <Draggable draggableId="draggable-1" index={2}*/}
-            {/*                >*/}
-            {/*                    {*/}
-            {/*                        (provided) => (*/}
-            {/*                            <div*/}
-            {/*                                ref={provided.innerRef}*/}
-            {/*                                {...provided.draggableProps}*/}
-            {/*                                {...provided.dragHandleProps}*/}
-            {/*                            >*/}
-            {/*                                <h4>Draggable-1</h4>*/}
-            {/*                            </div>*/}
-            {/*                        )*/}
-            {/*                    }*/}
-            {/*                </Draggable>*/}
-            {/*            </div>*/}
-
-            {/*        )*/}
-            {/*    }*/}
-            {/*</Draggable>*/}
-
-
+            <Droppable draggableId="draggable-1">
+                {
+                    (provided) => (
+                        <div
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                        >
+                            <Draggable draggableId="asdfsa" index={1}>
+                                {
+                                    (provided) => (
+                                        <div
+                                            ref={provided.innerRef}
+                                            {...provided.draggableProps}
+                                            {...provided.dragHandleProps}
+                                        >
+                                            <h4>Draggable-1</h4>
+                                        </div>
+                                    )
+                                }
+                            </Draggable>
+                        </div>
+                    )
+                }
+            </Droppable>
         </DragDropContext>
     )
 
