@@ -5,7 +5,6 @@ import {DragDropContext, Draggable, Droppable} from "react-beautiful-dnd";
 
 const data = [
     {
-        index: 0,
         title: "New",
         cardItems: [
             {
@@ -14,44 +13,58 @@ const data = [
                 type: "Bug"
             },
             {
-                description: "good",
-                linkWorkId: "12",
-                type: "Bug"
+                description: "nihao",
+                linkWorkId: "122",
+                type: "requirement"
             },
         ],
     },
     {
-        index: 1,
         title: "In Progress",
         cardItems: [
             {
-                description: "good",
+                description: "123d",
                 linkWorkId: "12",
                 type: "Bug"
             },
             {
-                description: "good",
-                linkWorkId: "12",
-                type: "Bug"
+                description: "123",
+                linkWorkId: "122",
+                type: "requirement"
             },
         ],
     },
     {
-        index: 2,
         title: "Done",
         cardItems: [
             {
-                description: "good",
+                description: "123dfd",
                 linkWorkId: "12",
                 type: "Bug"
             },
             {
-                description: "good",
-                linkWorkId: "12",
+                description: "12123",
+                linkWorkId: "12232",
+                type: "requirement"
+            },
+        ],
+    },
+    {
+        title: "Put Off",
+        cardItems: [
+            {
+                description: "123dfdff",
+                linkWorkId: "1234",
                 type: "Bug"
+            },
+            {
+                description: "1212fd3",
+                linkWorkId: "1223fg2",
+                type: "requirement"
             },
         ],
     }
+
 
 ];
 
@@ -61,133 +74,80 @@ const CardListContainer = styled.div`
 
 const CardList = props => {
     return (
-        // <DragDropContext
-        // onDragEnd={result => console.log(result)}
-        // >
-        //     {
-        //         data.map((cardList, index) => {
-        //             console.log(cardList)
-        //             return (
-        //                 <Card cardList={cardList}/>
-        //             )
-        //         })
-        //     }
-        // </DragDropContext>
         <DragDropContext
             onDragEnd={result => console.log(result)}
         >
-            {
-                data.map((cardList, index) => {
-                    console.log(cardList)
-                    return (
-                        <Droppable draggableId="draggable-1">
-                            {
-                                (provided) => (
-                                    <div
-                                        ref={provided.innerRef}
-                                        {...provided.draggableProps}
-                                    >
-                                        <Draggable draggableId="asdfsa" index={1}>
+            <CardListContainer>
+                {
+                    data.map((cardList, index) => {
+                        return (
+                            // 每一个卡片
+                            <Droppable droppableId={"droppableId"+index} index={index} >
+                                {
+                                    (provided) => (
+                                        <CardContainer
+                                            ref={provided.innerRef}
+                                            {...provided.draggableProps}
+                                        >
+                                            <Title >{cardList.title} </Title>
                                             {
-                                                (provided) => (
-                                                    <div
-                                                        ref={provided.innerRef}
-                                                        {...provided.draggableProps}
-                                                        {...provided.dragHandleProps}
-                                                    >
-                                                        <h4>Draggable-1</h4>
-                                                    </div>
-                                                )
+                                                cardList.cardItems.map((cardItem, index) => {
+                                                    console.log("index="+index)
+                                                    return (
+                                                        //每一个卡片的item
+                                                        <Draggable draggableId={cardItem.description+cardItem.type+cardItem.linkWorkId} index={index}  >
+                                                            {
+                                                                (provided) => (
+                                                                    <CardItemContainer
+                                                                        {...provided.draggableProps}
+                                                                        {...provided.dragHandleProps}
+                                                                        ref={provided.innerRef}
+                                                                    >
+                                                                        <h4>{cardItem.description}</h4>
+                                                                        <div>{cardItem.type}</div>
+                                                                    </CardItemContainer>
+                                                                )
+                                                            }
+                                                        </Draggable>
+                                                    )
+                                                })
                                             }
-                                        </Draggable>
-                                    </div>
-                                )
-                            }
-                        </Droppable>
-                    )
-                })
-            }
-
-
+                                        </CardContainer>
+                                    )
+                                }
+                            </Droppable>
+                        )
+                    })
+                }
+            </CardListContainer>
         </DragDropContext>
     );
 };
 
 const CardContainer = styled.div`
-    margin: 8px;
-    width: 220px;
+    width: 25%;
+    margin-right: 8px;
+    min-height: 500px;
     border: 1px solid lightgrey;
-    border-radius: 2px;
+    border-radius: 10px;
+    padding: 8px;
+    background-color: #f5f5f5;
+    box-shadow: 0 1px 0 rgba(9,30,66,.25);
 `;
 
-const Title = styled.h3`
+const Title = styled.h2`
+    padding-left: 10px;
 `;
 
-const Card = ({cardList}) => {
-    return (
-        <Draggable draggableId={cardList.index} index={cardList.index}>
-            {
-                (provided) => (
-                    <CardContainer
-                        {...provided.draggableProps}
-                        ref={provided.innerRef}
-                    >
-                        {
-                            cardList.cardItems.map((cardItem, index) => {
-                                console.log(cardItem)
-                                return (
-                                    <CardItem cardItem={cardItem}/>
-                                )
-                            })
-                        }
-                    </CardContainer>
-                )
-            }
-        </Draggable>
-        // <CardContainer>
-        //     <Title>{cardList.title}</Title>
-        //         {
-        //             cardList.cardItems.map((cardItem, index) => {
-        //                 console.log(cardItem)
-        //                 return (
-        //                     <CardItem cardItem={cardItem}   ></CardItem>
-        //                 )
-        //             })
-        //         }
-        // </CardContainer>
-    );
-};
 
 const CardItemContainer = styled.div`
     margin: 8px;
     border: 1px solid lightgrey;
-    border-radius: 2px;
-
+    border-radius: 8px;
+    background-color: white;
+    padding: 8px;
 `;
 
-const CardItem = ({cardItem}) => {
-    return (
-        <Draggable draggableId={cardItem.index} index={cardItem.index}>
-            {
-                (provided) => (
-                    <CardItemContainer
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        ref={provided.innerRef}
-                    >
-                        <div>{cardItem.description}</div>
-                        <div>{cardItem.type}</div>
-                    </CardItemContainer>
-                )
-            }
-        </Draggable>
-
-        // <CardItemContainer>
-        //     <div>{cardItem.description}</div>
-        //     <div>{cardItem.type}</div>
-        // </CardItemContainer>
-    );
-};
 
 
 export default CardList;

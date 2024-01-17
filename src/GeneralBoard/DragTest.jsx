@@ -48,10 +48,37 @@ const DragTest = props => {
                 {
                     (provided) => (
                         <div
+                            style={{width: "100%", height: "100%"}}
                             ref={provided.innerRef}
                             {...provided.draggableProps}
                         >
-                            <Draggable draggableId="asdfsa" index={1}>
+                            <Draggable draggableId="asdfsa1" index={1}>
+                                {
+                                    (provided) => (
+                                        <div
+                                            ref={provided.innerRef}
+                                            {...provided.draggableProps}
+                                            {...provided.dragHandleProps}
+                                        >
+                                            <h4>Draggable-1</h4>
+                                        </div>
+                                    )
+                                }
+                            </Draggable>
+                            <Draggable draggableId="asdfs2a" index={2}>
+                                {
+                                    (provided) => (
+                                        <div
+                                            ref={provided.innerRef}
+                                            {...provided.draggableProps}
+                                            {...provided.dragHandleProps}
+                                        >
+                                            <h4>Draggable-1</h4>
+                                        </div>
+                                    )
+                                }
+                            </Draggable>
+                            <Draggable draggableId="asdfs3a" index={3}>
                                 {
                                     (provided) => (
                                         <div
