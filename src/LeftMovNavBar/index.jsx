@@ -24,7 +24,7 @@ const LeftMovNavBar = props => {
         {
             name: "首页",
             icon: "bi bi-house-door",
-            path: "/home"
+            path: "/login"
         },
         {
             name: "工作",

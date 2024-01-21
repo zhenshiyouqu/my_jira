@@ -9,6 +9,8 @@ import Requirements from "./Requirements";
 import BugBoard from "./BugBoard";
 import GeneralBoard from "./GeneralBoard";
 import PlanBoard from "./PlanBoard";
+import LoginPage from "./LoginPage";
+import RegisterPage from "./LoginPage/RegisterPage";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -43,9 +45,17 @@ const router = createBrowserRouter(
                             element:<PlanBoard />
                         }
                     ]
-                }
+                },
 
             ]
+        },
+        {
+            path:"login",
+            element:<LoginPage/>
+        },
+        {
+            path:"register",
+            element:<RegisterPage/>
         }
 
     ]
