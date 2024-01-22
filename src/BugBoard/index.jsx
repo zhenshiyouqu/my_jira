@@ -10,6 +10,7 @@ import {Button, Modal} from "antd";
 import BugCreatePage from "./BugCreatePage";
 import BoardHead from "../BoardHead";
 import {Link} from "react-router-dom";
+import {getBugs} from "../back/ApiService";
 
 const BugBoard = props => {
     const [bugs, setBugs] = useState([new Bug()])
@@ -22,15 +23,20 @@ const BugBoard = props => {
 
     useEffect(() => {
         //     请求：/get/bugs
-        axios.get("http://localhost:8080/bug/get/bugs?creatorId=1").then((res) => {
-            console.log(res.data)
-            if (res.data.code === 200) {
-                setBugs(res.data.data)
-            }
+        // axios.get("http://localhost:8080/bug/get/bugs?creatorId=1").then((res) => {
+        //     console.log(res.data)
+        //     if (res.data.code === 200) {
+        //         setBugs(res.data.data)
+        //     }
+        // }).catch((err) => {
+        //         console.log("err=>", err)
+        //     }
+        // )
+        getBugs().then((res) => {
+            setBugs(res)
         }).catch((err) => {
-                console.log(err)
-            }
-        )
+            console.log(err)
+        })
     }, [
     ]);
 
@@ -44,7 +50,6 @@ const BugBoard = props => {
                     },
                     {
                         title:"Project"
-
                     },
                     {
                         title:"Bug",
