@@ -2,13 +2,38 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Button, Form, message, Upload} from "antd";
 import {LoadingOutlined, PlusOutlined} from "@ant-design/icons";
+import { registerAccount} from "../back/ApiService";
 
 const RegisterPage = props => {
     const [loading, setLoading] = useState(false);
     const [imageUrl, setImageUrl] = useState(null);
+
+    //检查注册数据
+    const checkRegisterData = (data) => {
+        if (data.password !== data.repassword) {
+            message.error("两次密码不一致")
+            return false
+        }
+        return true
+    }
+
     const register = (data) => {
-        console.log(imageUrl)
-        console.log(data)
+        if (!checkRegisterData(data)){
+            return
+        }
+        //调用接口后端接口register
+        registerAccount(data).then((res) => {
+            console.log(res.data)
+            if (res.data.code === 200) {
+                console.log("注册成功")
+                message.success("注册成功")
+            }
+        }
+        ).catch((err) => {
+                console.log(err)
+            }
+        )
+        alert("注册成功")
     }
 
     const handleChange = (info) => {
@@ -106,13 +131,16 @@ const RegisterPage = props => {
                             )}
                         </Upload>
                     </Form.Item>
+                    <Form.Item label="nickname" name="name">
+                        <input/>
+                    </Form.Item>
                     <Form.Item label="account" name="account">
                         <input/>
                     </Form.Item>
-                    <Form.Item label="password" name={"password"}>
+                    <Form.Item label="password" name="password">
                         <input/>
                     </Form.Item>
-                    <Form.Item label="repassword" name={"repassword"}>
+                    <Form.Item label="repassword" name="repassword">
                         <input/>
                     </Form.Item>
                     <Form.Item wrapperCol={{offset: 18}}>

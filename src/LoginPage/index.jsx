@@ -1,13 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button, Form} from "antd";
-
+import {Button, Form, message} from "antd";
+import {loginAccount} from "../back/ApiService";
+import {Navigate, redirect, useNavigate} from "react-router-dom";
 const LoginPage = props => {
-
+    const navigate = useNavigate();
     const login = (data) => {
-      console.log(data)
+        loginAccount(data).then((res) => {
+            if (res) {
+                message.success("登录成功")
+                localStorage.setItem("user", data.account)
+                //跳转到主页
+                navigate("/projects")
+            }
+            else {
+                message.error("登录失败")
+                navigate("/login")
+            }
+        }
+        ).catch((err) => {
+                console.log(err)
+            }
+        )
     }
-
     return (
         <div style={{
             height: "100%",
@@ -38,10 +53,10 @@ const LoginPage = props => {
                 sm: { span: 14 },
             }} onFinish={login}
                 >
-                    <Form.Item label={"用户名"} name={"username"}>
+                    <Form.Item label="account" name="account">
                         <input/>
                     </Form.Item>
-                    <Form.Item label={"密码"} name={"password"}>
+                    <Form.Item label="password" name="password">
                         <input/>
                     </Form.Item>
                     <Form.Item wrapperCol={{offset:18}} >

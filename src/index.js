@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter, Navigate, Route, RouterProvider} from "react-router-dom";
+import {createBrowserRouter, Navigate, redirect, Route, RouterProvider} from "react-router-dom";
 import LeftStaticNavBar from "./LeftStaticNavBar";
 import Requirements from "./Requirements";
 import BugBoard from "./BugBoard";
@@ -11,14 +11,26 @@ import GeneralBoard from "./GeneralBoard";
 import PlanBoard from "./PlanBoard";
 import LoginPage from "./LoginPage";
 import RegisterPage from "./LoginPage/RegisterPage";
+import {message} from "antd";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const loginLoader = () => {
+    console.log("loginLoader")
+    //校验是否有登录信息
+    if (localStorage.getItem("token") === null || localStorage.getItem("user") === null) {
+        message.error("请先登录")
+        return  redirect("/login")
+    }
+    return null;
+};
 
 const router = createBrowserRouter(
     [
         {
             path: '/',
             element: <App/>,
+            loader: loginLoader,
             children: [
                 {
                     index: true,
@@ -46,7 +58,6 @@ const router = createBrowserRouter(
                         }
                     ]
                 },
-
             ]
         },
         {
@@ -57,32 +68,10 @@ const router = createBrowserRouter(
             path:"register",
             element:<RegisterPage/>
         }
-
     ]
-
 );
 
 
 root.render(<RouterProvider router={router} />);
 
-    // {/*<BrowserRouter>*/}
-    // {/*    <Routes>*/}
-    // {/*        <Route path="/" element={<App/>} >*/}
-    // {/*            <Route index={true} element={<Navigate  to={"/projects/board"}/> } />*/}
-    // {/*            <Route path="projects" element={<LeftStaticNavBar />} >*/}
-    // {/*                <Route path="board" element={<MainPage />}/>*/}
-    // {/*                <Route path="requirements" element={<Requirements />}/>*/}
-    // {/*                <Route path="bugs" element={<BugBoard />}/>*/}
-    // {/*                <Route path="plans" element={<PlanBoard />}/>*/}
-    // {/*            </Route>*/}
-    // {/*            <Route path="other" element={<MainPage />} >*/}
-    // {/*            </Route>*/}
-    // {/*        </Route>*/}
-    // {/*    </Routes>*/}
-    // {/*</BrowserRouter>*/}
-
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
