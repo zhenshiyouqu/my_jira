@@ -43,6 +43,7 @@ export const ItemText = styled.div`
   transition-property: right, visibility, opacity;
   font-family: "CircularStdBold",sans-serif; font-weight: normal;
   font-size:12px;
+  
   ${NavLeft}:hover & {
     right: 0;
     visibility: visible;
